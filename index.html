@@ -5,11 +5,26 @@
 	<meta charset="UTF-8">
 	<title>Book Author Portfolio Website Template</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
-	<audio autoplay loop>  
-		<source src="media/sailinya.mp3" type="audio/mpeg">  
-	  </audio>
+	
 </head>
 <body>
+	<audio preload autoplay loop id="music">
+		<source src="media/sailinya.mp3" type="audio/mpeg">
+   </audio>
+   <script type="text/javascript">
+    window.onload = function(){
+             setInterval("toggleSound()",1);
+        }
+    function toggleSound() {
+                var music = document.getElementById("music");//获取ID  
+                if (music.paused) { //判读是否播放  
+                    music.paused=false;
+                    music.play(); //没有就播放 
+                }    
+        }
+</script>
+
+   
 	<div id="page">
 		<div id="header">
 			<a href="index.html" class="logo"><img src="images/logo.png" alt=""></a>
