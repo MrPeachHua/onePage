@@ -11,15 +11,25 @@
 	<audio preload autoplay loop id="music">
 		<source src="media/sailinya.mp3" type="audio/mpeg">
    </audio>
+   <audio preload autoplay loop id="initMusic">
+	<source src="media/init.mp3" type="audio/mpeg">
+</audio>
    <script type="text/javascript">
     window.onload = function(){
              setInterval("toggleSound()",1);
         }
     function toggleSound() {
                 var music = document.getElementById("music");//获取ID  
-                if (music.paused) { //判读是否播放  
+				var initMusic = document.getElementById("initMusic");//获取ID  
+                var ms = Math.ceil(Math.random()*10); Math.ceil(Math.random()*10); 
+				if (music.paused && initMusic.paused) { //判读是否播放  
+					if(ms%2 == 1){
+						initMusic.paused=false;
+                    	initMusic.play(); //没有就播放 
+					} else {
                     music.paused=false;
                     music.play(); //没有就播放 
+					}
                 }    
         }
 </script>
